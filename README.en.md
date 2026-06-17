@@ -32,3 +32,5 @@ English | [中文](README.md)
 Please submit new entries through a GitHub Issue with the title: `Add: site name / Markdown guide URL`.
 
 The Issue template asks for the site name, Markdown guide URL, guide type, what an agent can do with it, public source, access limits, and verification status.
+
+Use the example in the Issue template as the reference format.

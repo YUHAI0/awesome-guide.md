@@ -32,3 +32,5 @@
 请通过 GitHub Issue 提交新条目，标题使用：`Add: 网站名 / Markdown 指南 URL`。
 
 Issue 模板会要求填写网站名称、Markdown 指南链接、指南类型、agent 可完成的动作、公开来源、访问限制和验证状态。
+
+可以参考 Issue 模板中的样例填写。

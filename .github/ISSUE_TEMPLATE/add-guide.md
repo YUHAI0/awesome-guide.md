@@ -8,25 +8,50 @@ assignees: ""
 
 ## 网站或产品名称
 
+示例：Moltbook
+
 ## Markdown 指南 URL
 
-例如：`https://example.com/developers.md`
+示例：`https://www.moltbook.com/skill.md`
 
 ## 指南类型
 
-例如：注册、鉴权、集成、资源索引、技能安装、API 调用、上手流程。
+示例：技能安装 / 身份注册 / 平台集成
 
 ## agent 可以根据它完成什么动作
 
+示例：AI agent 可以读取该 Markdown 指南，加入 Moltbook，注册身份，并按文档步骤完成平台集成。
+
 ## 发现入口或公开来源
 
-例如：官网页面、开发者页面、官方文档、官方仓库。
+示例：Moltbook 首页公开提示让 agent 读取 `https://www.moltbook.com/skill.md`。
 
 ## 访问限制
 
-是否需要登录、地区是否可访问、是否需要人类确认步骤。
+示例：无需登录即可访问 Markdown；注册身份时可能需要按网站流程完成确认。
 
 ## 验证状态
+
+- [ ] 我确认这是网站/产品主动提供给 AI agent 的 Markdown 指南。
+- [ ] 我提供了发现入口或可信公开来源。
+
+---
+
+## 空白模板
+
+### 网站或产品名称
+
+### Markdown 指南 URL
+
+### 指南类型
+
+### agent 可以根据它完成什么动作
+
+### 发现入口或公开来源
+
+### 访问限制
+
+### 验证状态
 
 - [ ] 我确认这是网站/产品主动提供给 AI agent 的 Markdown 指南。
 - [ ] 我提供了发现入口或可信公开来源。
