@@ -1,5 +1,10 @@
 import assert from 'node:assert/strict';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 import {
   buildRows,
   parseIssueBody,
@@ -103,4 +108,30 @@ test('updateReadme rejects duplicate guide URLs', () => {
   const duplicate = () => updateReadme(readme, '| Duplicate | [`guide.md`](https://existing.com/guide.md) | Use | [Duplicate](https://existing.com) |', '## Agent Markdown 指南');
 
   assert.throws(duplicate, /already exists/);
+});
+
+test('CLI validate-only mode does not write README', () => {
+  const cwd = mkdtempSync(join(tmpdir(), 'awesome-guide-'));
+  writeFileSync(join(cwd, 'README.md'), readme, 'utf8');
+  writeFileSync(join(cwd, 'issue.md'), validIssue, 'utf8');
+  const outputPath = join(cwd, 'output.txt');
+
+  const result = spawnSync(
+    process.execPath,
+    [fileURLToPath(new URL('./update-readme-from-issue.mjs', import.meta.url))],
+    {
+      cwd,
+      env: {
+        ...process.env,
+        ISSUE_BODY_FILE: 'issue.md',
+        GITHUB_OUTPUT: outputPath,
+        VALIDATE_ONLY: 'true',
+      },
+      encoding: 'utf8',
+    },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(readFileSync(join(cwd, 'README.md'), 'utf8'), readme);
+  assert.match(readFileSync(outputPath, 'utf8'), /status<<EOF\nvalid\nEOF/);
 });

@@ -2,7 +2,7 @@ name: Update README from Issue
 
 on:
   issues:
-    types: [opened, edited, reopened]
+    types: [opened, edited, reopened, labeled]
 
 permissions:
   contents: write
@@ -29,8 +29,29 @@ jobs:
             const fs = require('fs');
             fs.writeFileSync('issue-body.md', context.payload.issue.body || '', 'utf8');
 
+      - name: Check approval
+        id: approval
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const isApprovedLabel =
+              context.payload.action === 'labeled' &&
+              context.payload.label?.name === 'approved';
+            const isOwner = context.actor === context.repo.owner;
+            core.setOutput('approved', String(isApprovedLabel && isOwner));
+            core.setOutput('owner', String(isOwner));
+
+      - name: Validate issue
+        id: validate
+        if: steps.approval.outputs.approved != 'true'
+        env:
+          ISSUE_BODY_FILE: issue-body.md
+          VALIDATE_ONLY: 'true'
+        run: node scripts/update-readme-from-issue.mjs
+
       - name: Update README
         id: update
+        if: steps.approval.outputs.approved == 'true'
         env:
           ISSUE_BODY_FILE: issue-body.md
         run: node scripts/update-readme-from-issue.mjs
@@ -62,11 +83,25 @@ jobs:
               body: `已根据该 Issue 更新 README。\n\n${process.env.UPDATE_MESSAGE}`
             })
 
-      - name: Comment invalid issue
-        if: steps.update.outputs.status == 'invalid'
+      - name: Comment waiting for owner approval
+        if: steps.validate.outputs.status == 'valid'
         uses: actions/github-script@v7
         env:
-          UPDATE_MESSAGE: ${{ steps.update.outputs.message }}
+          UPDATE_MESSAGE: ${{ steps.validate.outputs.message }}
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: process.env.UPDATE_MESSAGE
+            })
+
+      - name: Comment invalid issue
+        if: steps.update.outputs.status == 'invalid' || steps.validate.outputs.status == 'invalid'
+        uses: actions/github-script@v7
+        env:
+          UPDATE_MESSAGE: ${{ steps.update.outputs.message || steps.validate.outputs.message }}
         with:
           script: |
             await github.rest.issues.createComment({

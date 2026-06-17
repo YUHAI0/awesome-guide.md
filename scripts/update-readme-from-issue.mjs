@@ -170,6 +170,13 @@ async function main() {
     return;
   }
 
+  if (process.env.VALIDATE_ONLY === 'true') {
+    writeOutput('status', 'valid');
+    writeOutput('message', 'Issue 模板校验通过。等待仓库 owner 添加 `approved` 标签后写入 README。');
+    process.exitCode = 0;
+    return;
+  }
+
   const rows = buildRows(entry);
   const readmePath = 'README.md';
   const readme = readFileSync(readmePath, 'utf8');
