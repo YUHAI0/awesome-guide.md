@@ -1,128 +1,106 @@
 # awesome-guide.md
 
-> 中文：整理全网公开出现过、可被 AI agent / coding agent / IDE agent 读取或接入的 Markdown 文档约定。
->
-> English: A curated bilingual index of Markdown-based conventions that AI agents, coding agents, and IDE agents can read, load, or use as persistent project context.
+> 收集全网公开可查、用于指导 AI Agent / Coding Agent / IDE Agent 行为的 Markdown 指引文件。
 
-## 项目目的 / Purpose
+## 项目目的
 
-中文：`awesome-guide.md` 旨在把分散在各类 agent 工具、IDE、CLI、文档站和社区里的 Markdown 接入文件统一整理出来，帮助开发者快速判断“应该把规则写到哪个 `.md` 文件里”“哪些工具能读取它”“它适合团队共享、个人偏好、项目规则还是可复用技能”。
+`awesome-guide.md` 只整理“指引类 Markdown”：也就是工具会读取、引用或建议维护的规则、约定、记忆、指南、编码标准等自然语言文档。它的目标是帮助开发者快速判断：
 
-English: `awesome-guide.md` collects Markdown entry points used by agentic coding tools and AI-assisted development environments. It helps developers decide where to place instructions, which tools can read them, and whether each file is best suited for team-wide rules, personal preferences, project context, reusable skills, prompts, or documentation indexes.
+- 某个 agent 应该把项目规则写到哪个 Markdown 文件里；
+- 这个文件放在哪里；
+- 它主要指导什么行为；
+- 官方或可信英文文档在哪里。
 
-## 收录标准 / Inclusion Criteria
+## 收录标准
 
-- 中文：优先收录有官方文档、官方仓库、明确工具行为或广泛社区实践的 Markdown 文件。
-- English: Prefer files backed by official docs, source repositories, documented tool behavior, or broad community practice.
-- 中文：同一工具的新旧格式会同时列出，并标注推荐状态。
-- English: New and legacy formats for the same tool may both be listed, with status notes.
-- 中文：不保证“全网穷尽”，但会持续通过 Issue 和 PR 补全。
-- English: This list is not guaranteed to be exhaustive, but is designed to grow through Issues and pull requests.
+- 必须是公开网页、官方文档、官方仓库或可信社区资料中可以查到的文件。
+- 必须用于指导 agent 行为、编码规范、项目约定、上下文记忆或工作方式。
+- 优先收录 Markdown 文件；少数官方明确说明为 Markdown 规则文件但后缀不是 `.md` 的格式会单独标注。
+- 不收录模型配置、API Key 配置、MCP 配置、忽略文件、普通项目 README、普通贡献指南、普通安全策略文件。
+- 不收录无法找到公开来源的口口相传用法。
 
-## 通用标准 / Cross-Agent Standards
+## 通用指引文件
 
-| 文件 / File | 工具或生态 / Tool or Ecosystem | 用途 / Purpose | 状态 / Status | 参考 / Reference |
+| 指引文件 | 适用工具 | 推荐位置 | 作用 | 英文文档 / 来源 |
 | --- | --- | --- | --- | --- |
-| `AGENTS.md` | Codex, Cursor, GitHub Copilot, Windsurf / Devin Desktop, Cline, Roo Code, Junie, Amp, Aider, and more | 中文：跨工具项目指令文件；英文：cross-tool project instructions | 推荐 / Recommended | [agents.md](https://agents.md/) |
-| `AGENTS.override.md` | OpenAI Codex | 中文：全局或目录级覆盖指令；英文：global or directory-level override instructions | 工具专用 / Tool-specific | [Codex AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md) |
-| `llms.txt` | Docs sites, LLM-ready documentation | 中文：面向 LLM 的文档索引；英文：LLM-readable documentation index | 推荐用于文档站 / Recommended for docs sites | [llmstxt.org](https://llmstxt.org/) |
-| `llms-full.txt` | Docs sites, LLM-ready documentation | 中文：完整文档上下文；英文：full documentation context for LLMs | 可选 / Optional | [llmstxt.org](https://llmstxt.org/) |
-| `SKILL.md` | Agent Skills compatible tools | 中文：可复用 agent 技能包入口；英文：entry file for reusable agent skill packages | 推荐用于复杂流程 / Recommended for reusable workflows | [Agent Skills](https://agentskills.io/) |
+| `AGENTS.md` | OpenAI Codex、GitHub Copilot、Devin / Windsurf Cascade、Cline、Roo Code、JetBrains Junie、Amp、Crush、Aider 等 | 仓库根目录或子目录 | 跨工具的项目级 agent 指引，通常写启动命令、测试命令、代码风格、目录约定、PR 要求 | [AGENTS.md](https://agents.md/), [OpenAI Codex](https://developers.openai.com/codex/guides/agents-md), [GitHub Copilot](https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot), [Devin / Windsurf Cascade](https://docs.windsurf.com/windsurf/cascade/agents-md), [Cline](https://docs.cline.bot/customization/cline-rules), [Roo Code](https://roocodeinc.github.io/Roo-Code/features/custom-instructions/), [Junie](https://junie.jetbrains.com/docs/guidelines-and-memory.html), [Amp](https://ampcode.com/manual), [Crush](https://github.com/charmbracelet/crush) |
+| `AGENTS.override.md` | OpenAI Codex | 与 `AGENTS.md` 同级 | Codex 专用覆盖指引，用于替代同目录下的 `AGENTS.md` | [OpenAI Codex](https://developers.openai.com/codex/guides/agents-md) |
 
-## 编码 Agent 与 IDE 规则 / Coding Agents and IDE Rules
+## 主流 Coding Agent 指引文件
 
-| 工具 / Tool | Markdown 文件 / Markdown Files | 默认位置 / Default Location | 说明 / Notes | 参考 / Reference |
+| 工具 | 指引文件 | 推荐位置 | 作用 | 英文文档 / 来源 |
 | --- | --- | --- | --- | --- |
-| OpenAI Codex | `AGENTS.md`, `AGENTS.override.md` | `~/.codex/`, repo root, nested directories | 中文：按全局、项目、子目录分层加载；英文：loads global, project, and nested instructions in order | [Codex guide](https://developers.openai.com/codex/guides/agents-md) |
-| Claude Code | `CLAUDE.md`, `CLAUDE.local.md`, `.claude/rules/*.md` | repo root, `.claude/`, `~/.claude/` | 中文：`CLAUDE.md` 可用 `@AGENTS.md` 复用通用规则；英文：`CLAUDE.md` can import `AGENTS.md` with `@` syntax | [Claude memory docs](https://docs.anthropic.com/en/docs/claude-code/memory) |
-| GitHub Copilot | `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` | `.github/`, `.github/instructions/`, repo tree | 中文：支持仓库级、路径级和 agent 指令；英文：supports repo-wide, path-specific, and agent instructions | [GitHub Docs](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) |
-| Gemini CLI | `GEMINI.md`, configurable `AGENTS.md` | repo tree, `~/.gemini/` | 中文：默认读取 `GEMINI.md`，可通过 `contextFileName` 改为 `AGENTS.md`；英文：defaults to `GEMINI.md`, configurable to `AGENTS.md` | [Gemini CLI configuration](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) |
-| Qwen Code | `QWEN.md`, configurable context files | repo tree, `~/.qwen/`, `.qwen/settings.json` | 中文：默认上下文文件为 `QWEN.md`，可配置 `context.fileName`；英文：defaults to `QWEN.md`, configurable via `context.fileName` | [Qwen Code settings](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/) |
-| Cursor | `.cursor/rules/*.mdc`, `AGENTS.md`, legacy `.cursorrules` | `.cursor/rules/`, repo root | 中文：`.mdc` 支持 frontmatter、glob 和智能附加；英文：`.mdc` supports frontmatter, globs, and intelligent attachment | [Cursor rules](https://cursor.com/docs/rules.md) |
-| Windsurf / Devin Desktop Cascade | `.devin/rules/*.md`, `.windsurf/rules/*.md`, `.windsurfrules`, `AGENTS.md` | `.devin/rules/`, `.windsurf/rules/`, repo tree | 中文：`.devin/rules/` 为推荐位置，`.windsurf/` 为兼容位置；英文：`.devin/rules/` is preferred, `.windsurf/` remains as fallback | [Cascade memories and rules](https://docs.windsurf.com/windsurf/cascade/memories) |
-| Cline | `.clinerules/*.md`, `.clinerules/*.txt`, `AGENTS.md`, legacy `.cursorrules`, `.windsurfrules` | `.clinerules/`, repo root | 中文：支持多来源规则并可在规则面板切换；英文：detects several rule sources and allows toggling | [Cline rules](https://docs.cline.bot/customization/cline-rules) |
-| Roo Code | `.roo/rules/*.md`, `.roo/rules-{mode}/*.md`, `.roorules`, `.roorules-{mode}`, `AGENTS.md` | `.roo/`, repo root, `~/.roo/` | 中文：支持全局、工作区和模式专用规则；英文：supports global, workspace, and mode-specific rules | [Roo custom instructions](https://docs.roocode.com/features/custom-instructions) |
-| Continue | `.continue/rules/*.md` | `.continue/rules/` | 中文：Markdown rule 可带 YAML frontmatter、glob、regex、alwaysApply；英文：Markdown rules support frontmatter, globs, regex, and `alwaysApply` | [Continue rules](https://docs.continue.dev/customize/deep-dives/rules) |
-| Amazon Q Developer | `.amazonq/rules/*.md` | `.amazonq/rules/` | 中文：项目规则会在 IDE chat 中自动作为上下文；英文：project rules are automatically used as IDE chat context | [Amazon Q project rules](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/context-project-rules.html) |
-| Aider | `CONVENTIONS.md` or any Markdown loaded with `/read` / `--read` | configurable, often repo root | 中文：通过 `.aider.conf.yml` 的 `read` 固定加载约定；英文：can always load conventions via `.aider.conf.yml` `read` | [Aider conventions](https://aider.chat/docs/usage/conventions.html) |
-| JetBrains Junie | `.junie/AGENTS.md`, `AGENTS.md`, legacy `.junie/guidelines.md`, `.junie/guidelines/*.md` | `.junie/`, repo root, `~/.junie/` | 中文：优先使用 `.junie/AGENTS.md` 和根目录 `AGENTS.md`；英文：prefers `.junie/AGENTS.md` and root `AGENTS.md` | [Junie guidelines](https://junie.jetbrains.com/docs/guidelines-and-memory.html) |
-| Amp | `AGENTS.md`, legacy `AGENT.md` | repo root | 中文：新版本使用 `AGENTS.md`，旧文章提到 `AGENT.md`；英文：newer behavior uses `AGENTS.md`, legacy docs mention `AGENT.md` | [Amp manual](https://ampcode.com/manual) |
-| Crush | `CRUSH.md`, `AGENTS.md` | `~/.config/crush/CRUSH.md`, `~/.config/AGENTS.md` | 中文：`CRUSH.md` 放工具专用规则，`AGENTS.md` 放跨工具规则；英文：use `CRUSH.md` for Crush-specific rules and `AGENTS.md` for shared rules | [Crush README](https://github.com/charmbracelet/crush) |
+| Claude Code | `CLAUDE.md` | 仓库根目录、父目录或用户级目录 | Claude Code 的项目记忆文件，写项目说明、常用命令、代码风格、团队约定 | [Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory) |
+| Claude Code | `CLAUDE.local.md` | 仓库根目录 | 本地个人偏好指引，适合写不应提交到仓库的私人环境、测试数据或偏好 | [Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory) |
+| Claude Code | `.claude/rules/*.md` | `.claude/rules/` | 面向大项目的路径级或主题级规则文件，用于拆分代码风格、安全、测试等指引 | [Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory) |
+| GitHub Copilot | `.github/copilot-instructions.md` | `.github/` | 仓库级 Copilot 自定义指令，影响 Chat、代码生成、Review 等支持场景 | [GitHub Copilot custom instructions](https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) |
+| GitHub Copilot | `.github/instructions/*.instructions.md` | `.github/instructions/` | 路径级或主题级指令文件，可用 frontmatter 定义适用文件范围 | [GitHub Copilot custom instructions](https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) |
+| Gemini CLI | `GEMINI.md` | 仓库目录或用户级目录 | Gemini CLI 的上下文指引文件，可写项目说明、角色、编码风格和团队规则 | [Gemini CLI context files](https://geminicli.com/docs/cli/gemini-md/), [Google Developers](https://developers.google.com/gemini-code-assist/docs/gemini-cli) |
+| Qwen Code | `QWEN.md` | 仓库根目录或 `.qwen/` | Qwen Code 的上下文指引文件，用于写项目级或全局默认指令 | [Qwen Code settings](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/) |
+| Aider | `CONVENTIONS.md` | 仓库根目录或自定义路径 | 编码约定指引文件，通常通过 `/read CONVENTIONS.md` 或 `--read CONVENTIONS.md` 加载 | [Aider conventions](https://aider.chat/docs/usage/conventions.html), [Aider conventions repo](https://github.com/Aider-AI/conventions) |
+| Amp | `AGENTS.md` | 仓库根目录或目录树中 | Amp 读取的项目结构、构建测试命令、编码约定指引 | [Amp manual](https://ampcode.com/manual) |
+| Amp | `AGENT.md` | 仓库根目录 | Amp 旧版指引文件；官方说明现已改为读取 `AGENTS.md` | [Amp AGENT.md note](https://ampcode.com/news/AGENT.md) |
+| Crush | `CRUSH.md` | `~/.config/crush/CRUSH.md` 或初始化时自定义路径 | Crush 专用自然语言指引文件，用于写只适合 Crush 的规则；项目初始化默认生成 `AGENTS.md`，也可自定义为 `CRUSH.md` | [Crush README](https://github.com/charmbracelet/crush) |
 
-## 技能、命令与工作流 / Skills, Commands, and Workflows
+## IDE / 插件规则指引文件
 
-| 文件 / File | 工具或生态 / Tool or Ecosystem | 用途 / Purpose | 备注 / Notes |
-| --- | --- | --- | --- |
-| `SKILL.md` | Agent Skills, Claude Code, Codex plugins, Crush, compatible agents | 中文：技能说明、触发条件、步骤、引用文件；英文：skill description, triggers, steps, and references | 适合复杂、可复用流程 / Best for reusable procedures |
-| `.claude/commands/*.md` | Claude Code | 中文：自定义 slash command；英文：custom slash commands | 常用于可重复提示 / Reusable prompts |
-| `.continue/prompts/*.md` | Continue | 中文：可复用 prompt；英文：reusable prompts | 可与 rules 分离 / Separate from rules |
-| `.devin/workflows/*.md` or `.windsurf/workflows/*.md` | Windsurf / Devin Desktop | 中文：手动触发的工作流；英文：manually triggered workflows | 适合发布、评审、部署清单 / Useful for release, review, and deploy checklists |
-| `.qwen/skills/*/SKILL.md` | Qwen Code | 中文：项目级 agent skill；英文：project-level agent skill | Qwen Code 文档列出 `.qwen/skills/` |
+| 工具 | 指引文件 | 推荐位置 | 作用 | 英文文档 / 来源 |
+| --- | --- | --- | --- | --- |
+| Cursor | `.cursor/rules/*.mdc` | `.cursor/rules/` | Cursor Project Rules；`.mdc` 是 Markdown Cursor 规则文件，可写编码规范、架构约束、文件匹配规则 | [Cursor rules](https://cursor.com/docs/rules) |
+| Devin / Windsurf Cascade | `.devin/rules/*.md` | `.devin/rules/` | Cascade 工作区规则文件，适合团队共享编码规范、架构约定和项目行为指引 | [Devin / Windsurf memories and rules](https://docs.windsurf.com/windsurf/cascade/memories) |
+| Devin / Windsurf Cascade | `.windsurf/rules/*.md` | `.windsurf/rules/` | Cascade 旧版兼容规则目录；新项目优先使用 `.devin/rules/` | [Devin / Windsurf memories and rules](https://docs.windsurf.com/windsurf/cascade/memories) |
+| Devin / Windsurf Cascade | `global_rules.md` | `~/.codeium/windsurf/memories/global_rules.md` | Cascade 全局规则文件，适合跨项目个人或组织通用指引 | [Devin / Windsurf memories and rules](https://docs.windsurf.com/windsurf/cascade/memories) |
+| Cline | `.clinerules/*.md` | `.clinerules/` | Cline 持久规则文件，用于写编码标准、项目偏好、工作流程要求 | [Cline rules](https://docs.cline.bot/customization/cline-rules) |
+| Roo Code | `.roo/rules/*.md` | `.roo/rules/` | Roo Code 工作区规则，用于写自定义行为、编码标准、约束和偏好 | [Roo Code custom instructions](https://roocodeinc.github.io/Roo-Code/features/custom-instructions/) |
+| Roo Code | `.roo/rules-{mode}/*.md` | `.roo/` | Roo Code 模式专用规则，例如只对某个 mode 生效的指引 | [Roo Code custom instructions](https://roocodeinc.github.io/Roo-Code/features/custom-instructions/) |
+| Continue | `.continue/rules/*.md` | `.continue/rules/` | Continue Agent / Chat / Edit 模式规则文件，可用 YAML frontmatter 控制适用范围 | [Continue rules](https://docs.continue.dev/customize/deep-dives/rules) |
+| Amazon Q Developer | `.amazonq/rules/*.md` | `.amazonq/rules/` | Amazon Q 项目规则，写编码标准、安全要求、架构模式等团队共享指引 | [Amazon Q project rules](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/context-project-rules.html), [AWS blog](https://aws.amazon.com/blogs/devops/mastering-amazon-q-developer-with-rules/) |
+| JetBrains Junie | `AGENTS.md` | 仓库根目录 | Junie 推荐的项目级 guidelines 文件 | [Junie guidelines](https://junie.jetbrains.com/docs/guidelines-and-memory.html), [JetBrains AI Assistant](https://www.jetbrains.com/help/ai-assistant/junie-agent.html) |
+| JetBrains Junie | `.junie/guidelines.md` | `.junie/` | Junie 早期 guidelines 文件；现可用 `AGENTS.md` 替代或迁移 | [Junie guidelines](https://junie.jetbrains.com/docs/guidelines-and-memory.html) |
+| JetBrains Junie | `.junie/guidelines/*.md` | `.junie/guidelines/` | Junie 技术栈或主题拆分式 guidelines | [Junie guidelines](https://junie.jetbrains.com/docs/guidelines-and-memory.html), [Junie guidelines repo](https://github.com/JetBrains/junie-guidelines) |
 
-## 文档站与知识库接入 / Documentation and Knowledge-Base Entry Points
+## 不收录范围
 
-| 文件 / File | 适用场景 / Scenario | 用途 / Purpose |
-| --- | --- | --- |
-| `llms.txt` | 文档站、SDK、开源项目 / docs sites, SDKs, OSS projects | 中文：提供面向 LLM 的文档地图；英文：provides an LLM-oriented documentation map |
-| `llms-full.txt` | 小型文档站或可接受大上下文的场景 / small docs sites or large-context use | 中文：提供完整合并文档；英文：provides full merged docs |
-| `README.md` | 所有项目 / all projects | 中文：人类入口，也常被 agent 读取；英文：human entry point, often read by agents |
-| `CONTRIBUTING.md` | 开源项目 / open-source projects | 中文：贡献流程、测试、提交规范；英文：contribution flow, tests, commit rules |
-| `SECURITY.md` | 开源或企业项目 / OSS or enterprise projects | 中文：安全报告、禁区、漏洞披露；英文：security reporting and disclosure rules |
-| `ARCHITECTURE.md` | 中大型项目 / medium and large projects | 中文：系统结构与边界；英文：system structure and boundaries |
-| `DESIGN.md` | 设计系统、品牌、UI 项目 / design systems, brand, UI projects | 中文：面向 agent 的视觉规范；英文：agent-readable visual identity or design system guidance |
+下面这些文件可能也会被 agent 读取，但它们不是本项目要整理的“agent 指引类 Markdown”，因此暂不作为主清单条目：
 
-## 建议写法 / Recommended Structure
+- `README.md`：项目介绍文档，不是 agent 专用指引。
+- `CONTRIBUTING.md`：贡献说明，不是 agent 专用指引。
+- `SECURITY.md`：安全披露说明，不是 agent 专用指引。
+- `llms.txt` / `llms-full.txt`：文档站索引或 LLM 文档入口，不是 coding agent 项目行为指引。
+- `.env`、`settings.json`、`mcp.json`、`.aider.conf.yml` 等：配置文件，不是 Markdown 指引。
+- `SKILL.md`：技能包入口，不属于本清单当前聚焦的“项目规则 / 指引类 Markdown”。
 
-中文：如果你只想维护一个通用文件，优先从 `AGENTS.md` 开始；如果你的团队同时使用 Claude Code、Cursor、Copilot、Gemini CLI 等工具，再按工具需要添加轻量桥接文件，例如 `CLAUDE.md` 内只写 `@AGENTS.md`。
+## 建议维护方式
 
-English: If you want one shared source of truth, start with `AGENTS.md`. If your team uses Claude Code, Cursor, Copilot, Gemini CLI, and other tools together, add thin compatibility files where needed, such as a `CLAUDE.md` that only imports `@AGENTS.md`.
+如果一个团队同时使用多个 agent，建议优先维护一个通用 `AGENTS.md`，再按工具需要添加桥接文件：
 
-推荐章节 / Suggested sections:
+- Claude Code：可以在 `CLAUDE.md` 中引用或总结 `AGENTS.md`。
+- GitHub Copilot：可以同时维护 `.github/copilot-instructions.md` 和 `AGENTS.md`，前者服务 Copilot 全局自定义指令，后者服务 coding agent。
+- Gemini CLI / Qwen Code：如果团队重度使用对应 CLI，可以维护 `GEMINI.md` 或 `QWEN.md`。
+- Cursor / Cline / Roo / Continue / Amazon Q：适合把大规则拆成多个主题文件，放到各自规则目录。
 
-- 项目概览 / Project overview
-- 环境与启动命令 / Setup and run commands
-- 构建、测试、Lint / Build, test, and lint
-- 代码风格与架构边界 / Code style and architectural boundaries
-- 安全与权限注意事项 / Security and permission notes
-- 提交与 PR 规范 / Commit and PR rules
-- 工具专用补充 / Tool-specific notes
+推荐指引文件包含：
 
-## 待补充清单 / To Be Expanded
+- 项目简介和关键目录；
+- 安装、启动、构建、测试命令；
+- 代码风格和架构边界；
+- 禁止修改或高风险区域；
+- 常见任务流程；
+- PR、提交、验证要求；
+- 工具专用注意事项。
 
-- Zed Agent, Factory, Devin cloud, Kilo Code, OpenCode, Sourcegraph Cody, Tabnine, Replit Agent, VS Code agent mode, Warp, Goose, Semgrep Assistant, Augment Code, UIPath coded agents.
-- 更多非英文生态里的 agent Markdown 约定。
-- 更多真实仓库示例和迁移模板。
+## 如何提交新条目
 
-## 如何提交 awesome-guide 条目 / How to Contribute an awesome-guide Entry
-
-中文：
-
-1. 在 GitHub 上打开本仓库：`git@github.com:YUHAI0/awesome-guide.md.git` 对应的页面。
-2. 新建 Issue，标题使用：`Add: 工具名 / 文件名`。
-3. 在 Issue 中提供：工具名称、Markdown 文件名、默认路径、用途、官方文档或可信来源链接、是否已验证。
-4. 如果你愿意直接修改清单，也可以 fork 仓库后通过 Git 提交 PR：
+1. 在 GitHub 仓库新建 Issue，标题使用：`Add: 工具名 / 文件名`。
+2. Issue 必须提供：工具名称、指引文件名、推荐路径、用途说明、英文官方文档或可信公开来源链接。
+3. 如果没有公开来源链接，暂不收录。
+4. 也可以直接提交 PR：
 
 ```bash
 git clone git@github.com:YUHAI0/awesome-guide.md.git
 cd awesome-guide.md
-git checkout -b docs/add-your-agent-md
+git checkout -b docs/add-agent-guide
 git add README.md
-git commit -m "docs: 添加某工具的 agent 文档约定"
-git push origin docs/add-your-agent-md
-```
-
-English:
-
-1. Open the GitHub repository that corresponds to `git@github.com:YUHAI0/awesome-guide.md.git`.
-2. Create an Issue with the title `Add: tool name / file name`.
-3. Include the tool name, Markdown filename, default path, purpose, official or credible source link, and verification status.
-4. You can also fork the repository and submit a PR through Git:
-
-```bash
-git clone git@github.com:YUHAI0/awesome-guide.md.git
-cd awesome-guide.md
-git checkout -b docs/add-your-agent-md
-git add README.md
-git commit -m "docs: 添加某工具的 agent 文档约定"
-git push origin docs/add-your-agent-md
+git commit -m "docs: 添加某工具的 agent 指引文件"
+git push origin docs/add-agent-guide
 ```
