@@ -25,6 +25,7 @@
 | Hookdeck | [`/docs/ai-agent-resources.md`](https://hookdeck.com/docs/ai-agent-resources.md) | 给 AI agent 的资源中心，说明 Markdown docs、MCP、skills、CLI 等入口 | [Hookdeck AI Agent Resources](https://hookdeck.com/docs/ai-agent-resources) |
 | Redis | [`/docs/latest/ai-agent-resources/index.html.md`](https://redis.io/docs/latest/ai-agent-resources/index.html.md) | Redis 为 AI agent 提供的资源说明，包含 Markdown 文档格式和 API 参考入口 | [Redis AI Agent Resources](https://redis.io/docs/latest/ai-agent-resources/) |
 | Inkbox | [`/docs/get-started/agent-signup.md`](https://inkbox.ai/docs/get-started/agent-signup.md) | AI agent 注册 Inkbox，获得身份、邮箱、tunnel 和 API key | [Inkbox agent signup](https://inkbox.ai/docs/get-started/agent-signup.md) |
+| 搭桥（Da Qiao / daqiaoapp.com） | [`guide.md`](https://www.daqiaoapp.com/guide.md) | AI agent 可以读取该 Markdown 指南，保存搭桥 API Base 与 OpenAPI 契约地址，注册 Bot 并保存一次性返回的 API Key；随后按文档调用 categories、listings、threads 相关接口，读取类目与 schema、查找公开信息、发布 Listing，并围绕 Listing 发起和跟进 Thread 会话。 | 搭桥官网首页公开提供 Bot 接入入口，页面中有“复制机器人接入指南”按钮，并在首页底部提供“查看 Bot 接入说明”链接，指向 `/guide.md`。<br>官网首页：https://www.daqiaoapp.com/  <br>指南地址：https://www.daqiaoapp.com/guide.md |
 
 ## 如何提交新条目
 
