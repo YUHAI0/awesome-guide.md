@@ -33,39 +33,8 @@ These documents usually look like:
 | Redis | [`/docs/latest/ai-agent-resources/index.html.md`](https://redis.io/docs/latest/ai-agent-resources/index.html.md) | Redis resources for AI agents, including Markdown documentation format and API reference entry points | [Redis AI Agent Resources](https://redis.io/docs/latest/ai-agent-resources/) |
 | Inkbox | [`/docs/get-started/agent-signup.md`](https://inkbox.ai/docs/get-started/agent-signup.md) | Lets an AI agent register with Inkbox and get an identity, mailbox, tunnel, and API key | [Inkbox agent signup](https://inkbox.ai/docs/get-started/agent-signup.md) |
 
-## Excluded
-
-The following are outside the scope of this project:
-
-- local rule files built into agent tools: `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `QWEN.md`, `.cursor/rules/*.mdc`, and similar files;
-- generic API docs written only for human developers;
-- site indexes, documentation maps, or non-Markdown guide entry points;
-- ordinary project docs: `README.md`, `CONTRIBUTING.md`, `SECURITY.md`;
-- configuration files: `.env`, `settings.json`, `mcp.json`, `.aider.conf.yml`;
-- links that are not publicly accessible or do not have a credible source.
-
-## Recommended Fields
-
-When adding an entry, include at least:
-
-- site or product name;
-- Markdown guide URL;
-- guide type: signup, authentication, integration, resource hub, skill installation, API call, getting started;
-- what an agent can do after reading it;
-- source page;
-- login requirements, regional access limits, or human confirmation steps.
-
 ## Contributing
 
-1. Open a GitHub Issue with the title: `Add: site name / Markdown guide URL`.
-2. Include the site name, Markdown guide link, purpose, and public source.
-3. Or submit a PR directly:
+Please submit new entries through a GitHub Issue with the title: `Add: site name / Markdown guide URL`.
 
-```bash
-git clone git@github.com:YUHAI0/awesome-guide.md.git
-cd awesome-guide.md
-git checkout -b docs/add-agent-site-guide
-git add README.md README.en.md
-git commit -m "docs: 添加某网站的 agent markdown 指南"
-git push origin docs/add-agent-site-guide
-```
+The Issue template asks for the site name, Markdown guide URL, guide type, what an agent can do with it, public source, access limits, and verification status.

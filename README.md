@@ -33,39 +33,8 @@
 | Redis | [`/docs/latest/ai-agent-resources/index.html.md`](https://redis.io/docs/latest/ai-agent-resources/index.html.md) | Redis 为 AI agent 提供的资源说明，包含 Markdown 文档格式和 API 参考入口 | [Redis AI Agent Resources](https://redis.io/docs/latest/ai-agent-resources/) |
 | Inkbox | [`/docs/get-started/agent-signup.md`](https://inkbox.ai/docs/get-started/agent-signup.md) | AI agent 注册 Inkbox，获得身份、邮箱、tunnel 和 API key | [Inkbox agent signup](https://inkbox.ai/docs/get-started/agent-signup.md) |
 
-## 暂不收录
-
-下面这些不是本项目当前要收录的对象：
-
-- agent 工具内置本地规则：`AGENTS.md`、`CLAUDE.md`、`GEMINI.md`、`QWEN.md`、`.cursor/rules/*.mdc` 等；
-- 只服务人类开发者的普通 API 文档；
-- 站点索引、文档地图或非 Markdown 指南入口；
-- 普通项目文档：`README.md`、`CONTRIBUTING.md`、`SECURITY.md`；
-- 配置文件：`.env`、`settings.json`、`mcp.json`、`.aider.conf.yml`；
-- 无法公开访问或没有可信来源的链接。
-
-## 推荐记录字段
-
-新增条目时建议至少记录：
-
-- 网站或产品名称；
-- Markdown 指南 URL；
-- 指南类型：注册、鉴权、集成、资源索引、技能安装、API 调用、上手流程；
-- agent 可以根据它完成什么动作；
-- 发现入口或来源页面；
-- 是否需要登录、地区可访问性或人类确认步骤。
-
 ## 如何提交新条目
 
-1. 在 GitHub 仓库新建 Issue，标题使用：`Add: 网站名 / Markdown 指南 URL`。
-2. Issue 必须提供：网站名称、Markdown 指南链接、用途说明、发现入口或公开来源。
-3. 也可以直接提交 PR：
+请通过 GitHub Issue 提交新条目，标题使用：`Add: 网站名 / Markdown 指南 URL`。
 
-```bash
-git clone git@github.com:YUHAI0/awesome-guide.md.git
-cd awesome-guide.md
-git checkout -b docs/add-agent-site-guide
-git add README.md
-git commit -m "docs: 添加某网站的 agent markdown 指南"
-git push origin docs/add-agent-site-guide
-```
+Issue 模板会要求填写网站名称、Markdown 指南链接、指南类型、agent 可完成的动作、公开来源、访问限制和验证状态。
