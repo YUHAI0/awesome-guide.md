@@ -6,13 +6,7 @@
 
 ## 项目目的
 
-`awesome-guide.md` 关注的不是 Claude、Codex、Cursor 这类 agent 工具内置会读取哪些本地规则文件，而是互联网上的网站主动暴露给 agent 的 Markdown 指南入口。
-
-这类文档通常长这样：
-
-- 网站页面直接告诉用户：把某个 `.md` 链接发给你的 AI agent；
-- 网站提供专门给 agent 阅读或执行的 `.md` 指南；
-- 文档站提供 AI Agent Resources 页面，说明 agent 如何发现、读取、注册、鉴权或调用服务；
+`awesome-guide.md` 的目的是收录互联网上的网站主动暴露给 agent 的 Markdown 指南入口。
 
 ## 收录标准
 

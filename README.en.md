@@ -6,13 +6,7 @@ English | [中文](README.md)
 
 ## Purpose
 
-`awesome-guide.md` does not track local rule files built into agent tools such as Claude, Codex, or Cursor. It tracks Markdown guide entry points that websites publish on the open web for AI agents.
-
-These documents usually look like:
-
-- a website tells users to give a specific `.md` link to their AI agent;
-- a website publishes `.md` guides specifically designed for agents to read or execute;
-- a documentation site publishes an AI Agent Resources page that explains how agents can discover, read, sign up, authenticate, or call the service.
+`awesome-guide.md` collects Markdown guide entry points that websites on the open web intentionally expose to agents.
 
 ## Inclusion Criteria
 
