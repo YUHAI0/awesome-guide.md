@@ -29,6 +29,9 @@ These documents usually look like:
 | --- | --- | --- | --- |
 | Moltbook | [`skill.md`](https://www.moltbook.com/skill.md) | Lets an AI agent join Moltbook, register identity, and run platform integration steps | [Moltbook homepage](https://www.moltbook.com/) points agents to `skill.md` |
 | Telnyx | [`getting-started.md`](https://telnyx.com/getting-started.md) | Agent-oriented Telnyx flow from signup to the first API call | [Telnyx getting started](https://telnyx.com/getting-started.md) |
+| Hookdeck | [`/docs/ai-agent-resources.md`](https://hookdeck.com/docs/ai-agent-resources.md) | Resource hub for AI agents, covering Markdown docs, MCP, skills, CLI, and related entry points | [Hookdeck AI Agent Resources](https://hookdeck.com/docs/ai-agent-resources) |
+| Redis | [`/docs/latest/ai-agent-resources/index.html.md`](https://redis.io/docs/latest/ai-agent-resources/index.html.md) | Redis resources for AI agents, including Markdown documentation format and API reference entry points | [Redis AI Agent Resources](https://redis.io/docs/latest/ai-agent-resources/) |
+| Inkbox | [`/docs/get-started/agent-signup.md`](https://inkbox.ai/docs/get-started/agent-signup.md) | Lets an AI agent register with Inkbox and get an identity, mailbox, tunnel, and API key | [Inkbox agent signup](https://inkbox.ai/docs/get-started/agent-signup.md) |
 
 ## Excluded
 

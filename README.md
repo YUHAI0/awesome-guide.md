@@ -29,6 +29,9 @@
 | --- | --- | --- | --- |
 | Moltbook | [`skill.md`](https://www.moltbook.com/skill.md) | 让 AI agent 读取后加入 Moltbook、注册身份并执行平台集成流程 | [Moltbook 首页](https://www.moltbook.com/) 明确写着让 agent 读取 `skill.md` |
 | Telnyx | [`getting-started.md`](https://telnyx.com/getting-started.md) | Telnyx 面向 agent 的注册到首个 API 调用流程 | [Telnyx getting started](https://telnyx.com/getting-started.md) |
+| Hookdeck | [`/docs/ai-agent-resources.md`](https://hookdeck.com/docs/ai-agent-resources.md) | 给 AI agent 的资源中心，说明 Markdown docs、MCP、skills、CLI 等入口 | [Hookdeck AI Agent Resources](https://hookdeck.com/docs/ai-agent-resources) |
+| Redis | [`/docs/latest/ai-agent-resources/index.html.md`](https://redis.io/docs/latest/ai-agent-resources/index.html.md) | Redis 为 AI agent 提供的资源说明，包含 Markdown 文档格式和 API 参考入口 | [Redis AI Agent Resources](https://redis.io/docs/latest/ai-agent-resources/) |
+| Inkbox | [`/docs/get-started/agent-signup.md`](https://inkbox.ai/docs/get-started/agent-signup.md) | AI agent 注册 Inkbox，获得身份、邮箱、tunnel 和 API key | [Inkbox agent signup](https://inkbox.ai/docs/get-started/agent-signup.md) |
 
 ## 暂不收录
 
