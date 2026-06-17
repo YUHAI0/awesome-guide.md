@@ -1,29 +1,33 @@
 ---
-name: 添加 agent 指引文件
-about: 提交一个公开可查的 agent Markdown 指引文件
-title: "Add: 工具名 / 文件名"
+name: 添加网站提供的 agent Markdown 指南
+about: 提交一个网站公开提供给 AI agent 阅读或执行的 Markdown 指南
+title: "Add: 网站名 / Markdown 指南 URL"
 labels: documentation
 assignees: ""
 ---
 
-## 工具名称
+## 网站或产品名称
 
-## 指引文件名
+## Markdown 指南 URL
 
-例如：`AGENTS.md`、`CLAUDE.md`、`.continue/rules/*.md`
+例如：`https://example.com/developers.md`
 
-## 推荐路径
+## 指南类型
 
-## 用途说明
+例如：注册、鉴权、集成、资源索引、技能安装、API 调用、上手流程。
 
-说明它如何指导 agent 行为、编码规范、项目约定或工作流程。
+## agent 可以根据它完成什么动作
 
-## 英文官方文档或可信公开来源
+## 发现入口或公开来源
 
-没有公开来源链接的条目暂不收录。
+例如：官网页面、开发者页面、`llms.txt`、官方文档、官方仓库。
+
+## 访问限制
+
+是否需要登录、地区是否可访问、是否需要人类确认步骤。
 
 ## 验证状态
 
-- [ ] 我已确认该工具会读取或建议使用这个指引文件。
-- [ ] 我提供的是官方文档链接。
-- [ ] 我提供的是可信社区资料链接。
+- [ ] 我确认这是网站/产品主动提供给 AI agent 的 Markdown 指南。
+- [ ] 我提供了发现入口或可信公开来源。
+- [ ] 如果入口是 `llms.txt`，我已指出其中具体的指南型 `.md` 页面。
