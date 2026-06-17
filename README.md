@@ -11,7 +11,7 @@
 这类文档通常长这样：
 
 - 网站页面直接告诉用户：把某个 `.md` 链接发给你的 AI agent；
-- 网站提供 `developers.md`、`skill.md`、`auth.md`、`agent-signup.md` 等 agent 可读指南；
+- 网站提供专门给 agent 阅读或执行的 `.md` 指南；
 - 文档站提供 AI Agent Resources 页面，说明 agent 如何发现、读取、注册、鉴权或调用服务；
 
 ## 收录标准
@@ -23,23 +23,12 @@
 - 不收录 agent 工具自己的本地规则文件，例如 `AGENTS.md`、`CLAUDE.md`、`.cursor/rules/*.mdc`。
 - 不收录普通 API 文档页面，除非该页面明确面向 AI agent。
 
-## Agent 可直接阅读或执行的指南
+## Agent Markdown 指南
 
 | 网站 / 产品 | Markdown 指南 | 主要用途 | 发现入口 / 来源 |
 | --- | --- | --- | --- |
 | Moltbook | [`skill.md`](https://www.moltbook.com/skill.md) | 让 AI agent 读取后加入 Moltbook、注册身份并执行平台集成流程 | [Moltbook 首页](https://www.moltbook.com/) 明确写着让 agent 读取 `skill.md` |
-| Moltbook | [`developers.md`](https://moltbook.com/developers.md) | 面向开发者和 agent 的 Moltbook 身份接入指南，说明如何验证 agent identity | [Moltbook Developers](https://www.moltbook.com/developers) |
-| Moltbook | [`auth.md`](https://moltbook.com/auth.md?app=YourApp&endpoint=https://your-api.com/action) | 动态生成给 bot 的认证说明；网站可把这个链接放进自己的 API 文档或 skill 文件 | [Moltbook Developers](https://www.moltbook.com/developers) |
-| Hookdeck | [`/docs/ai-agent-resources.md`](https://hookdeck.com/docs/ai-agent-resources.md) | 给 AI agent 的资源中心，说明 Markdown docs、MCP、skills、CLI 等入口 | [Hookdeck AI Agent Resources](https://hookdeck.com/docs/ai-agent-resources) |
-| Redis | [`/docs/latest/ai-agent-resources/index.html.md`](https://redis.io/docs/latest/ai-agent-resources/index.html.md) | Redis 为 AI agent 提供的资源说明，包含 Markdown 文档格式和 API 参考入口 | [Redis AI Agent Resources](https://redis.io/docs/latest/ai-agent-resources/) |
-
-## Agent 注册与上手指南
-
-| 网站 / 产品 | Markdown 指南 | 主要用途 | 发现入口 / 来源 |
-| --- | --- | --- | --- |
-| Telnyx | [`agent-signup.md`](https://telnyx.com/agent-signup.md) | AI agent 自主注册 Telnyx、获取 API key、通过邮箱 magic link 完成验证 | [Telnyx agent signup](https://telnyx.com/agent-signup.md) |
 | Telnyx | [`getting-started.md`](https://telnyx.com/getting-started.md) | Telnyx 面向 agent 的注册到首个 API 调用流程 | [Telnyx getting started](https://telnyx.com/getting-started.md) |
-| Inkbox | [`/docs/get-started/agent-signup.md`](https://inkbox.ai/docs/get-started/agent-signup.md) | AI agent 注册 Inkbox，获得身份、邮箱、tunnel 和 API key | [Inkbox agent signup](https://inkbox.ai/docs/get-started/agent-signup.md) |
 
 ## 暂不收录
 
