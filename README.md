@@ -33,6 +33,6 @@
 
 Issue 模板会要求填写网站名称、Markdown 指南链接、指南类型、agent 可完成的动作、公开来源、访问限制和验证状态。
 
-Issue 校验通过后，需要仓库 owner 添加 `approved` 标签确认，Action 才会写入 README。
+Issue 校验通过后，需要仓库管理者（admin 权限）添加 `approved` 标签确认，Action 才会写入 README。
 
 可以参考 Issue 模板中的样例填写。

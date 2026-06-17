@@ -37,9 +37,21 @@ jobs:
             const isApprovedLabel =
               context.payload.action === 'labeled' &&
               context.payload.label?.name === 'approved';
-            const isOwner = context.actor === context.repo.owner;
-            core.setOutput('approved', String(isApprovedLabel && isOwner));
-            core.setOutput('owner', String(isOwner));
+            let isAdmin = false;
+            if (isApprovedLabel) {
+              try {
+                const permission = await github.rest.repos.getCollaboratorPermissionLevel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  username: context.actor,
+                });
+                isAdmin = permission.data.permission === 'admin';
+              } catch (error) {
+                core.warning(`Cannot read collaborator permission for ${context.actor}: ${error.message}`);
+              }
+            }
+            core.setOutput('approved', String(isApprovedLabel && isAdmin));
+            core.setOutput('admin', String(isAdmin));
 
       - name: Validate issue
         id: validate
@@ -83,7 +95,7 @@ jobs:
               body: `已根据该 Issue 更新 README。\n\n${process.env.UPDATE_MESSAGE}`
             })
 
-      - name: Comment waiting for owner approval
+      - name: Comment waiting for admin approval
         if: steps.validate.outputs.status == 'valid'
         uses: actions/github-script@v7
         env:
@@ -95,6 +107,18 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
               body: process.env.UPDATE_MESSAGE
+            })
+
+      - name: Comment non-admin approval
+        if: github.event.action == 'labeled' && github.event.label.name == 'approved' && steps.approval.outputs.admin != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '已收到 `approved` 标签，但只有仓库管理者（admin 权限）添加该标签时，Action 才会写入 README。'
             })
 
       - name: Comment invalid issue

@@ -134,4 +134,5 @@ test('CLI validate-only mode does not write README', () => {
   assert.equal(result.status, 0, result.stderr);
   assert.equal(readFileSync(join(cwd, 'README.md'), 'utf8'), readme);
   assert.match(readFileSync(outputPath, 'utf8'), /status<<EOF\nvalid\nEOF/);
+  assert.match(readFileSync(outputPath, 'utf8'), /仓库管理者（admin 权限）/);
 });
