@@ -12,6 +12,8 @@ const zhFields = {
   status: '验证状态',
 };
 
+const maxShortFieldLength = 40;
+
 function cleanValue(value = '') {
   return value
     .replace(/^示例：.*$/gm, '')
@@ -69,6 +71,10 @@ function isMarkdownUrl(url) {
   }
 }
 
+function characterCount(value) {
+  return [...value].length;
+}
+
 export function validateEntry(entry) {
   const missing = [];
   for (const [key, label] of Object.entries(zhFields)) {
@@ -81,6 +87,12 @@ export function validateEntry(entry) {
   }
   if (!entry.verifiedGuide || !entry.verifiedSource) {
     missing.push('验证状态两个勾选项');
+  }
+  if (entry.action && characterCount(entry.action) > maxShortFieldLength) {
+    missing.push(`agent 可以根据它完成什么动作（${maxShortFieldLength}字以内）`);
+  }
+  if (entry.source && characterCount(entry.source) > maxShortFieldLength) {
+    missing.push(`发现入口或公开来源（${maxShortFieldLength}字以内）`);
   }
 
   if (missing.length > 0) {

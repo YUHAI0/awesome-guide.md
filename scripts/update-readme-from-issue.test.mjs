@@ -27,11 +27,11 @@ https://example.com/agent-guide.md
 
 ## agent 可以根据它完成什么动作
 
-AI agent 可以读取该指南，完成 ExampleSite API 的接入和首个请求。
+读取指南并完成 API 接入。
 
 ## 发现入口或公开来源
 
-https://example.com/developers
+官网开发者页面公开提供。
 
 ## 访问限制
 
@@ -60,8 +60,8 @@ test('parseIssueBody extracts filled template fields', () => {
   assert.equal(entry.site, 'ExampleSite');
   assert.equal(entry.url, 'https://example.com/agent-guide.md');
   assert.equal(entry.type, '集成 / API 调用');
-  assert.equal(entry.action, 'AI agent 可以读取该指南，完成 ExampleSite API 的接入和首个请求。');
-  assert.equal(entry.source, 'https://example.com/developers');
+  assert.equal(entry.action, '读取指南并完成 API 接入。');
+  assert.equal(entry.source, '官网开发者页面公开提供。');
   assert.equal(entry.access, '无需登录即可访问。');
   assert.equal(entry.verifiedGuide, true);
   assert.equal(entry.verifiedSource, true);
@@ -83,13 +83,24 @@ test('validateEntry rejects missing required fields and unchecked boxes', () => 
   assert.match(result.message, /验证状态/);
 });
 
+test('validateEntry rejects action and source fields longer than 40 characters', () => {
+  const entry = parseIssueBody(validIssue);
+  entry.action = '这是一个明确超过四十个字符的动作说明字段，用来验证自动校验会拒绝过长内容并返回错误。';
+  entry.source = '这是一个明确超过四十个字符的公开来源说明字段，用来验证自动校验会拒绝过长内容并返回错误。';
+  const result = validateEntry(entry);
+
+  assert.equal(result.valid, false);
+  assert.match(result.message, /agent 可以根据它完成什么动作（40字以内）/);
+  assert.match(result.message, /发现入口或公开来源（40字以内）/);
+});
+
 test('buildRows creates a Chinese README markdown table row', () => {
   const entry = parseIssueBody(validIssue);
   const rows = buildRows(entry);
 
   assert.equal(
     rows.zh,
-    '| ExampleSite | [`agent-guide.md`](https://example.com/agent-guide.md) | AI agent 可以读取该指南，完成 ExampleSite API 的接入和首个请求。 | [ExampleSite](https://example.com/developers) |',
+    '| ExampleSite | [`agent-guide.md`](https://example.com/agent-guide.md) | 读取指南并完成 API 接入。 | 官网开发者页面公开提供。 |',
   );
   assert.equal(Object.hasOwn(rows, 'en'), false);
 });

@@ -20,11 +20,11 @@ assignees: ""
 
 ## agent 可以根据它完成什么动作
 
-示例：AI agent 可以读取该 Markdown 指南，加入 Moltbook，注册身份，并按文档步骤完成平台集成。
+示例（40字以内）：读取指南并完成注册与平台集成。
 
 ## 发现入口或公开来源
 
-示例：Moltbook 首页公开提示让 agent 读取 `https://www.moltbook.com/skill.md`。
+示例（40字以内）：Moltbook 首页公开提示读取 skill.md。
 
 ## 访问限制
 
@@ -45,9 +45,9 @@ assignees: ""
 
 ### 指南类型
 
-### agent 可以根据它完成什么动作
+### agent 可以根据它完成什么动作（40字以内）
 
-### 发现入口或公开来源
+### 发现入口或公开来源（40字以内）
 
 ### 访问限制
 
