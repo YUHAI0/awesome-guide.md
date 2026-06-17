@@ -113,7 +113,7 @@ export function buildRows(entry) {
     : tableCell(entry.source);
   const row = `| ${tableCell(entry.site)} | [\`${guideLabel}\`](${entry.url}) | ${tableCell(entry.action)} | ${source} |`;
 
-  return { zh: row, en: row };
+  return { zh: row };
 }
 
 function extractUrls(row) {
@@ -172,13 +172,10 @@ async function main() {
 
   const rows = buildRows(entry);
   const readmePath = 'README.md';
-  const readmeEnPath = 'README.en.md';
   const readme = readFileSync(readmePath, 'utf8');
-  const readmeEn = readFileSync(readmeEnPath, 'utf8');
 
   try {
     writeFileSync(readmePath, updateReadme(readme, rows.zh, '## Agent Markdown 指南'), 'utf8');
-    writeFileSync(readmeEnPath, updateReadme(readmeEn, rows.en, '## Agent Markdown Guides'), 'utf8');
   } catch (error) {
     writeOutput('status', 'invalid');
     writeOutput('message', error.message);

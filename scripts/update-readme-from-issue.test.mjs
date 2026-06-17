@@ -49,17 +49,6 @@ const readme = `# awesome-guide.md
 ## 如何提交新条目
 `;
 
-const readmeEn = `# awesome-guide.md
-
-## Agent Markdown Guides
-
-| Site / Product | Markdown Guide | Main Use | Source |
-| --- | --- | --- | --- |
-| Existing | [\`guide.md\`](https://existing.com/guide.md) | Existing use | [Existing](https://existing.com) |
-
-## Contributing
-`;
-
 test('parseIssueBody extracts filled template fields', () => {
   const entry = parseIssueBody(validIssue);
 
@@ -89,7 +78,7 @@ test('validateEntry rejects missing required fields and unchecked boxes', () => 
   assert.match(result.message, /验证状态/);
 });
 
-test('buildRows creates Chinese and English markdown table rows', () => {
+test('buildRows creates a Chinese README markdown table row', () => {
   const entry = parseIssueBody(validIssue);
   const rows = buildRows(entry);
 
@@ -97,10 +86,7 @@ test('buildRows creates Chinese and English markdown table rows', () => {
     rows.zh,
     '| ExampleSite | [`agent-guide.md`](https://example.com/agent-guide.md) | AI agent 可以读取该指南，完成 ExampleSite API 的接入和首个请求。 | [ExampleSite](https://example.com/developers) |',
   );
-  assert.equal(
-    rows.en,
-    '| ExampleSite | [`agent-guide.md`](https://example.com/agent-guide.md) | AI agent 可以读取该指南，完成 ExampleSite API 的接入和首个请求。 | [ExampleSite](https://example.com/developers) |',
-  );
+  assert.equal(Object.hasOwn(rows, 'en'), false);
 });
 
 test('updateReadme appends a row before the next section', () => {
@@ -114,7 +100,7 @@ test('updateReadme appends a row before the next section', () => {
 });
 
 test('updateReadme rejects duplicate guide URLs', () => {
-  const duplicate = () => updateReadme(readmeEn, '| Duplicate | [`guide.md`](https://existing.com/guide.md) | Use | [Duplicate](https://existing.com) |', '## Agent Markdown Guides');
+  const duplicate = () => updateReadme(readme, '| Duplicate | [`guide.md`](https://existing.com/guide.md) | Use | [Duplicate](https://existing.com) |', '## Agent Markdown 指南');
 
   assert.throws(duplicate, /already exists/);
 });
