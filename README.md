@@ -14,7 +14,6 @@
 - 必须能用于指导 AI agent 接入、注册、鉴权、调用、集成、发现资源或理解该服务。
 - 必须能在公开网页、官方文档、官方仓库或可信公开资料中查到。
 - 只收录 `.md` 或明确以 Markdown 格式提供的页面。
-- 不收录 agent 工具自己的本地规则文件，例如 `AGENTS.md`、`CLAUDE.md`、`.cursor/rules/*.mdc`。
 - 不收录普通 API 文档页面，除非该页面明确面向 AI agent。
 
 ## Agent Markdown 指南

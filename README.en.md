@@ -14,7 +14,6 @@ English | [中文](README.md)
 - It must help an AI agent integrate, sign up, authenticate, call APIs, discover resources, or understand the service.
 - It must be discoverable from a public webpage, official documentation, official repository, or credible public source.
 - Only `.md` pages or pages explicitly served as Markdown are included.
-- Local rule files for agent tools are excluded, such as `AGENTS.md`, `CLAUDE.md`, and `.cursor/rules/*.mdc`.
 - Generic API docs are excluded unless the page is explicitly designed for AI agents.
 
 ## Agent Markdown Guides
