@@ -11,7 +11,6 @@
 - [收录标准](#收录标准)
 - [指南](#指南)
 - [如何提交新条目](#如何提交新条目)
-- [加入 Awesome List 前检查](#加入-awesome-list-前检查)
 
 ## 收录标准
 
@@ -42,10 +41,3 @@ Issue 校验通过后，需要仓库管理者（admin 权限）添加 `approved`
 可以参考 Issue 模板中的样例填写。
 
 更多说明见 [contributing.md](contributing.md)。
-
-## 加入 Awesome List 前检查
-
-- 列表应持续维护，并在公开 30 天后再提交到主 awesome list。
-- 每个条目都应有清晰描述和公开来源。
-- 条目描述保持简短，不使用营销语气。
-- 使用 `awesome-lint` 检查格式。
