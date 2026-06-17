@@ -1,5 +1,7 @@
 # awesome-guide.md
 
+[English](README.en.md) | 中文
+
 > 收集网站、产品和文档站主动提供给 AI Agent 阅读或执行的 Markdown 指南。
 
 ## 项目目的
