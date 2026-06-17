@@ -1,7 +1,7 @@
 ---
 name: 添加网站提供的 agent Markdown 指南
 about: 提交一个网站公开提供给 AI agent 阅读或执行的 Markdown 指南
-title: "Add: 网站名 / Markdown 指南 URL"
+title: "Add: 网站名"
 labels: documentation
 assignees: ""
 ---

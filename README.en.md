@@ -28,7 +28,7 @@ English | [中文](README.md)
 
 ## Contributing
 
-Please submit new entries through a GitHub Issue with the title: `Add: site name / Markdown guide URL`.
+Please submit new entries through a GitHub Issue with the title: `Add: site name`.
 
 The Issue template asks for the site name, Markdown guide URL, guide type, what an agent can do with it, public source, access limits, and verification status.
 
