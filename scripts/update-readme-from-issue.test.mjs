@@ -45,11 +45,9 @@ https://example.com/agent-guide.md
 
 const readme = `# awesome-guide.md
 
-## Agent Markdown 指南
+## 指南
 
-| 网站 / 产品 | Markdown 指南 | 主要用途 | 发现入口 / 来源 |
-| --- | --- | --- | --- |
-| Existing | [\`guide.md\`](https://existing.com/guide.md) | 已有用途 | [Existing](https://existing.com) |
+- [Existing \`guide.md\`](https://existing.com/guide.md) - 已有用途 [来源](https://existing.com)
 
 ## 如何提交新条目
 `;
@@ -94,13 +92,13 @@ test('validateEntry rejects action and source fields longer than 40 characters',
   assert.match(result.message, /发现入口或公开来源（40字以内）/);
 });
 
-test('buildRows creates a Chinese README markdown table row', () => {
+test('buildRows creates a Chinese README markdown list item', () => {
   const entry = parseIssueBody(validIssue);
   const rows = buildRows(entry);
 
   assert.equal(
     rows.zh,
-    '| ExampleSite | [`agent-guide.md`](https://example.com/agent-guide.md) | 读取指南并完成 API 接入。 | 官网开发者页面公开提供。 |',
+    '- [ExampleSite `agent-guide.md`](https://example.com/agent-guide.md) - 读取指南并完成 API 接入。 官网开发者页面公开提供。',
   );
   assert.equal(Object.hasOwn(rows, 'en'), false);
 });
@@ -108,15 +106,15 @@ test('buildRows creates a Chinese README markdown table row', () => {
 test('updateReadme appends a row before the next section', () => {
   const entry = parseIssueBody(validIssue);
   const rows = buildRows(entry);
-  const updated = updateReadme(readme, rows.zh, '## Agent Markdown 指南');
+  const updated = updateReadme(readme, rows.zh, '## 指南');
 
-  assert.match(updated, /\| ExampleSite \| \[`agent-guide.md`\]/);
+  assert.match(updated, /- \[ExampleSite `agent-guide.md`\]/);
   assert.ok(updated.indexOf('ExampleSite') < updated.indexOf('## 如何提交新条目'));
-  assert.match(updated, /ExampleSite.*\|\n\n## 如何提交新条目/s);
+  assert.match(updated, /ExampleSite.*\n\n## 如何提交新条目/s);
 });
 
 test('updateReadme rejects duplicate guide URLs', () => {
-  const duplicate = () => updateReadme(readme, '| Duplicate | [`guide.md`](https://existing.com/guide.md) | Use | [Duplicate](https://existing.com) |', '## Agent Markdown 指南');
+  const duplicate = () => updateReadme(readme, '- [Duplicate `guide.md`](https://existing.com/guide.md) - Use [来源](https://existing.com)', '## 指南');
 
   assert.throws(duplicate, /already exists/);
 });

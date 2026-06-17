@@ -121,9 +121,9 @@ function tableCell(value) {
 export function buildRows(entry) {
   const guideLabel = markdownLinkLabel(entry.url);
   const source = entry.source.startsWith('http')
-    ? `[${tableCell(sourceLinkLabel(entry))}](${entry.source})`
+    ? `[来源](${entry.source})`
     : tableCell(entry.source);
-  const row = `| ${tableCell(entry.site)} | [\`${guideLabel}\`](${entry.url}) | ${tableCell(entry.action)} | ${source} |`;
+  const row = `- [${tableCell(entry.site)} \`${guideLabel}\`](${entry.url}) - ${tableCell(entry.action)} ${source}`;
 
   return { zh: row };
 }
@@ -144,12 +144,12 @@ export function updateReadme(content, row, sectionTitle) {
     throw new Error(`Section not found: ${sectionTitle}`);
   }
 
-  const tableStart = content.indexOf('|', sectionStart);
-  if (tableStart === -1) {
-    throw new Error(`Table not found under section: ${sectionTitle}`);
+  const listStart = content.indexOf('- [', sectionStart);
+  if (listStart === -1) {
+    throw new Error(`List not found under section: ${sectionTitle}`);
   }
 
-  const nextSection = content.indexOf('\n## ', tableStart);
+  const nextSection = content.indexOf('\n## ', listStart);
   if (nextSection === -1) {
     return `${content.trimEnd()}\n${row}\n`;
   }
@@ -194,7 +194,7 @@ async function main() {
   const readme = readFileSync(readmePath, 'utf8');
 
   try {
-    writeFileSync(readmePath, updateReadme(readme, rows.zh, '## Agent Markdown 指南'), 'utf8');
+    writeFileSync(readmePath, updateReadme(readme, rows.zh, '## 指南'), 'utf8');
   } catch (error) {
     writeOutput('status', 'invalid');
     writeOutput('message', error.message);
